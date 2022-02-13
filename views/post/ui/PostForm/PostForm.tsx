@@ -1,27 +1,27 @@
 import React, { ReactNode } from 'react';
 import { usePostForm } from '../PostForm/usePostForm';
 
-export const PostForm: ReactNode = ({navigate}) => {
+export const PostForm: ReactNode = ({ navigate }) => {
   const { form, changeValue, submit } = usePostForm(navigate);
 
   return (
-    <div>
-      <p>
-        Título{' '}
+    <main>
+      <div>
+        <b>Título </b>
         <input
           value={form.title}
           onChange={(e) => changeValue('title', e.currentTarget.value)}
         />
-      </p>
-      <p>
-        Contenido{' '}
+      </div>
+      <div>
+        <b>Contenido </b>
         <input
           value={form.content}
           onChange={(e) => changeValue('content', e.currentTarget.value)}
         />
-      </p>
+      </div>
 
       <button onClick={submit}>Enviar</button>
-    </div>
+    </main>
   );
 };
