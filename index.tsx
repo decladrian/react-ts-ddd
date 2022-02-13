@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './style.css';
-import { Post } from './views/post/ui/Post/Post';
-import { PostForm } from './views/post/ui/PostForm/PostForm';
+import { Post } from './features/post/ui/Post/Post';
+import { PostForm } from './features/post/ui/PostForm/PostForm';
 
 interface AppProps {}
 interface AppState {
