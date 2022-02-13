@@ -19,15 +19,22 @@ class App extends Component<AppProps, AppState> {
   }
 
   navigate(page) {
+    alert(page);
     this.setState({ page });
+  }
+
+  componentDidMount() {
+    //this.navigate('form');
   }
 
   render() {
     return (
       <div>
-        {this.state.page === 'form' && <PostForm />}
+        {this.state.page === 'form' && (
+          <PostForm navigate={this.navigate.bind(this)} />
+        )}
         {this.state.page === 'collection' && <div></div>}
-        {this.state.page === 'post' && <div></div>}
+        {this.state.page === 'post' && <div> Post </div>}
       </div>
     );
   }

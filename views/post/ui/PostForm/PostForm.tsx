@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import { usePostForm } from '../PostForm/usePostForm';
 
-export const PostForm: ReactNode = () => {
-  const { form, changeValue, submit } = usePostForm();
+export const PostForm: ReactNode = ({navigate}) => {
+  const { form, changeValue, submit } = usePostForm(navigate);
 
   return (
     <div>

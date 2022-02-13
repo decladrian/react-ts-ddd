@@ -1,9 +1,9 @@
 import { useReducer } from 'react';
 import { PostSaveCmd } from '../../application/post-save-cmd';
-import { PostModels } from '../../domain/PostModel';
+import { PostModels } from '../../domain/PostModels';
 import { PostMapper } from '../../infra/PostMapper';
 
-export const usePostForm = () => {
+export const usePostForm = (navigate) => {
   const reducer = (state, action) => {
     return { ...state, [action.key]: action.value, created_at: new Date() };
   };
@@ -18,7 +18,9 @@ export const usePostForm = () => {
 
   const submit = () => {
     const mappedPost = new PostMapper().formToDTO(form);
-    PostSaveCmd(mappedPost).then((result) => alert(JSON.stringify(result)));
+    PostSaveCmd(mappedPost).then((result) => {
+      navigate('post');
+    });
   };
 
   return { form, changeValue, submit };
