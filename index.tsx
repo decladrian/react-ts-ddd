@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './style.css';
+import { Post } from './views/post/ui/Post/Post';
 import { PostForm } from './views/post/ui/PostForm/PostForm';
 
 interface AppProps {}
@@ -34,7 +35,7 @@ class App extends Component<AppProps, AppState> {
           <PostForm navigate={this.navigate.bind(this)} />
         )}
         {this.state.page === 'collection' && <div></div>}
-        {this.state.page === 'post' && <div> Post </div>}
+        {this.state.page === 'post' && <Post />}
       </div>
     );
   }

@@ -6,11 +6,13 @@ export const Post: ReactNode = () => {
 
   return (
     <main>
-      <ul>
-        <li>{post.title}</li>
-        <li>{post.content}</li>
-        <li>{post.created_at}</li>
-      </ul>
+      {post && (
+        <ul>
+          <li>{post.title}</li>
+          <li>{post.content}</li>
+          <li>{post.created_at}</li>
+        </ul>
+      )}
     </main>
   );
 };
