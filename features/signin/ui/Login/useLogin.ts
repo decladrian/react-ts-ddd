@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { Analitics } from '../../../../shared/infra/utils/Analitycs';
 import { LoginCmd } from '../../application/login-cmd';
 import { AuthModel } from '../../domain/AuthModel';
 
@@ -18,6 +19,7 @@ export const useLogin = () => {
     const { success, ...user } = await LoginCmd(form);
     if (success) {
       alert(JSON.stringify({ user }));
+      Analitics.send('LOGIN_USER', user);
     }
   };
 
