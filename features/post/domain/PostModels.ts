@@ -25,4 +25,11 @@ export namespace PostModels {
     findAll: () => Promise<collection>;
     save: (post: saveBody) => Promise<saveResponse>;
   }
+
+  export interface useCases {
+    like: (id: number) => any;
+    fetch: (id: number) => any;
+    findAll: () => any;
+    save: (post: saveBody) => any;
+  }
 }
