@@ -1,13 +1,13 @@
 export class Validation {
-  isValidEmail(email: string) {
+  static isValidEmail(email: string) {
     return email && email.length > 4;
   }
 
-  isValidDni(dni: string) {
+  static isValidDni(dni: string) {
     return dni.length > 6;
   }
 
-  isValidName(name: string, minLength = 3) {
+  static isValidName(name: string, minLength = 3) {
     return name.length >= minLength;
   }
 }

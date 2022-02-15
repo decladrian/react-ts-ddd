@@ -1,5 +1,4 @@
 import { useReducer } from 'react';
-import { Analytics } from '../../../../shared/infra/utils/Analytics';
 import { LoginController } from '../../application/LoginController';
 import { AuthModel } from '../../domain/AuthModel';
 
