@@ -12,6 +12,7 @@ export namespace PostModels {
   export type key = keyof model;
 
   export type saveResponse = { success: boolean };
+
   export type likeResponse = { success: boolean; like: boolean };
 
   export type saveBody = {
