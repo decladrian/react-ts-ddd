@@ -1,5 +1,5 @@
 export namespace AuthModel {
-  // Duda model: ¿Debería estar en shared?
+  // Duda model: ¿Estaría mejor en shared?
   export interface model {
     success: boolean;
     token: string;
