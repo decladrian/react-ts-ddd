@@ -22,6 +22,8 @@ export namespace PostModels {
     created_at: string;
   };
 
+  export type likeBody = { id: number };
+
   export interface useCases {
     fetch: (id: number) => Promise<model>;
     findAll: () => Promise<collection>;
