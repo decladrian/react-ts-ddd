@@ -6,6 +6,8 @@ const registry = {
   loginRepository: new LoginRepository(),
 };
 
-const mocks = {};
+const mocks = {
+  // postRepository: new PostRepositoryMock(),
+};
 
 export const container = { ...registry, ...mocks };
