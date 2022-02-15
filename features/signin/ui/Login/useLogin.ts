@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import { Analytics } from '../../../../shared/infra/utils/Analytics';
-import { LoginCmd } from '../../application/login-cmd';
+import { LoginController } from '../../application/LoginController';
 import { AuthModel } from '../../domain/AuthModel';
 
 export const useLogin = () => {
@@ -16,7 +16,7 @@ export const useLogin = () => {
     dispatch({ key, value });
 
   const submit = async () => {
-    const { success, ...user } = await LoginCmd(form);
+    const { success, ...user } = await new LoginController().login(form);
     if (success) {
       alert(JSON.stringify({ user }));
       Analytics.send('LOGIN_USER', user);

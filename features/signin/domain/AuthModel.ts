@@ -12,7 +12,7 @@ export namespace AuthModel {
 
   export type key = keyof signinBody;
 
-  export interface repository {
+  export interface useCases {
     login: (form: signinBody) => Promise<model>;
   }
 }

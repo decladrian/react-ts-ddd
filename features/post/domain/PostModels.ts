@@ -12,6 +12,7 @@ export namespace PostModels {
   export type key = keyof model;
 
   export type saveResponse = { success: boolean };
+  export type likeResponse = { success: boolean; like: boolean };
 
   export type saveBody = {
     id?: number;
@@ -20,16 +21,10 @@ export namespace PostModels {
     created_at: string;
   };
 
-  export interface repository {
+  export interface useCases {
     fetch: (id: number) => Promise<model>;
     findAll: () => Promise<collection>;
     save: (post: saveBody) => Promise<saveResponse>;
-  }
-
-  export interface useCases {
-    like: (id: number) => any;
-    fetch: (id: number) => any;
-    findAll: () => any;
-    save: (post: saveBody) => any;
+    like: (id: number) => Promise<likeResponse>;
   }
 }

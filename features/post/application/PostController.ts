@@ -1,11 +1,26 @@
+import { container } from '../../../container';
 import { PostModels } from '../domain/PostModels';
 
 export class PostController implements PostModels.useCases {
-  save(post) {}
+  private readonly repository = container.postRepository;
 
-  like(id: number) {}
+  save(post) {
+    if (false) {
+      // !validate(post)
+      throw new Error('Invalid data');
+    }
+    return this.repository.save(post);
+  }
 
-  fetch(id: number) {}
+  like(id: number) {
+    return this.repository.like(id);
+  }
 
-  findAll() {}
+  fetch(id: number) {
+    return this.repository.fetch(id);
+  }
+
+  findAll() {
+    return this.repository.findAll();
+  }
 }

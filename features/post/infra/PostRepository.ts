@@ -1,9 +1,10 @@
 import { PostMock } from '../domain/mocks/post';
 import { PostCollectionMock } from '../domain/mocks/post-collection';
+import { PostLikeMock } from '../domain/mocks/post-like';
 import { PostSaveMock } from '../domain/mocks/post-save';
 import { PostModels } from '../domain/PostModels';
 
-export class PostRepository implements PostModels.repository {
+export class PostRepository implements PostModels.useCases {
   fetch = async (id: number) => {
     return PostMock;
   };
@@ -14,5 +15,9 @@ export class PostRepository implements PostModels.repository {
 
   save = async (post) => {
     return PostSaveMock;
+  };
+
+  like = async (id) => {
+    return PostLikeMock;
   };
 }

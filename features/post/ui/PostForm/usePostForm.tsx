@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { PostSaveCmd } from '../../application/post-save-cmd';
+import { PostController } from '../../application/PostController';
 import { PostModels } from '../../domain/PostModels';
 import { PostMapper } from '../../infra/PostMapper';
 
@@ -16,11 +16,14 @@ export const usePostForm = (navigate) => {
     dispatch({ key, value });
   };
 
-  const submit = () => {
+  const submit = async () => {
     const mappedPost = new PostMapper().formToDTO(form);
-    PostSaveCmd(mappedPost).then((result) => {
+    try {
+      const result = await new PostController().save(mappedPost);
       navigate('post');
-    });
+    } catch (e: any) {
+      alert(JSON.stringify({ e }));
+    }
   };
 
   return { form, changeValue, submit };

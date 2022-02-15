@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { PostQry } from '../../application/post-qry';
+import { PostController } from '../../application/PostController';
 
 export const usePost = () => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
     const mockPostId = 1;
-    PostQry(mockPostId).then((post) => setPost(post));
+    new PostController().fetch(mockPostId).then((post) => setPost(post));
   }, []);
 
   return {
