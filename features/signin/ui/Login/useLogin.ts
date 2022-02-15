@@ -19,7 +19,6 @@ export const useLogin = () => {
     const { success, ...user } = await new LoginController().login(form);
     if (success) {
       alert(JSON.stringify({ user }));
-      Analytics.send('LOGIN_USER', user);
     }
   };
 
