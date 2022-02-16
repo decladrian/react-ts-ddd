@@ -17,21 +17,22 @@ export interface Registry {
 }
 
 const registry = {
-  // Repositories
   postRepository: new PostRepository(),
+
   loginRepository: new LoginRepository(),
+
   resolveRepository: async (tag, repo, config) => {
     //throw { error: 'JJ', data: config.params };
     const result = await repo;
-    alert(JSON.stringify({ tag, result }));
+    console.log({ tag, result, config });
     return result;
   },
-  // libs
+
   analytics: Analytics,
 };
 
 const mocks = {
-  postRepository: new PostRepositoryMock(),
+  // postRepository: new PostRepositoryMock(),
 };
 
 export const container: Registry = { ...registry, ...mocks };
