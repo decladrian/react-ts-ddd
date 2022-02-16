@@ -1,10 +1,10 @@
 import { container } from '../../../container';
+import { Controller } from '../../../shared/application/Controller';
 import { PostModels } from '../domain/PostModels';
 import { ValidatePost } from './ValidatePost';
 
-export class PostController implements PostModels.useCases {
+export class PostController extends Controller implements PostModels.useCases {
   private readonly repository = container.postRepository;
-  protected readonly resolveRepository = container.resolveRepository;
 
   save(post) {
     if (!ValidatePost(post)) {
