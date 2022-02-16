@@ -4,29 +4,30 @@ import { ValidatePost } from './ValidatePost';
 
 export class PostController implements PostModels.useCases {
   private readonly repository = container.postRepository;
-  // Duda sobre analytics: ¿application o infra?
-  private readonly analytics = container.analytics;
+  protected readonly resolveRepository = container.resolveRepository;
 
   save(post) {
     if (!ValidatePost(post)) {
       throw new Error('Invalid data');
     }
-    this.analytics.send('SAVE_POST', post);
-    return this.repository.save(post);
+    return this.resolveRepository('SAVE_POST', this.repository.save(post), {
+      params: { post },
+    });
   }
 
   like(id: number) {
-    this.analytics.send('LIKE_POST', { id });
-    return this.repository.like(id);
+    return this.resolveRepository('LIKE_POST', this.repository.like(id), {
+      params: { id },
+    });
   }
 
   fetch(id: number) {
-    this.analytics.send('POST', { id });
-    return this.repository.fetch(id);
+    return this.resolveRepository('POST', this.repository.fetch(id), {
+      params: { id },
+    });
   }
 
   findAll() {
-    this.analytics.send('POST', {});
-    return this.repository.findAll();
+    return this.resolveRepository('POST_COLLECTION', this.repository.findAll());
   }
 }

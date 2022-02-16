@@ -1,18 +1,37 @@
+import { PostModels } from './features/post/domain/PostModels';
 import { PostRepository } from './features/post/infra/PostRepository';
 import { PostRepositoryMock } from './features/post/infra/PostRepositoryMock';
+import { AuthModel } from './features/signin/domain/AuthModel';
 import { LoginRepository } from './features/signin/infra/LoginRepository';
 import { Analytics } from './shared/infra/utils/Analytics';
+
+export interface Registry {
+  postRepository: PostModels.useCases;
+  loginRepository: AuthModel.useCases;
+  resolveRepository: <T>(
+    tag: string,
+    repo: Promise<T>,
+    config?: any
+  ) => Promise<T>;
+  analytics: Analytics;
+}
 
 const registry = {
   // Repositories
   postRepository: new PostRepository(),
   loginRepository: new LoginRepository(),
+  resolveRepository: async (tag, repo, config) => {
+    //throw { error: 'JJ', data: config.params };
+    const result = await repo;
+    alert(JSON.stringify({ tag, result }));
+    return result;
+  },
   // libs
   analytics: Analytics,
 };
 
 const mocks = {
-  //postRepository: new PostRepositoryMock(),
+  postRepository: new PostRepositoryMock(),
 };
 
-export const container = { ...registry, ...mocks };
+export const container: Registry = { ...registry, ...mocks };
