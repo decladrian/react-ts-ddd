@@ -6,7 +6,11 @@ export class Command {
     useCaseCall: () => Promise<T>,
     settings?: { params?: any }
   ): Promise<T> {
-    const data = await useCaseCall();
+    try {
+      var data = await useCaseCall();
+    } catch (e) {
+      throw { error: e.message };
+    }
     return data;
   }
 }

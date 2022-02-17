@@ -1,5 +1,6 @@
+import { SemanticTypes } from '../../../shared/domain/SemainticType';
+
 export namespace AuthModel {
-  // Duda model: ¿Estaría mejor en shared?
   export interface model {
     success: boolean;
     token: string;
@@ -7,7 +8,7 @@ export namespace AuthModel {
   }
 
   export interface signinBody {
-    email: string;
+    email: SemanticTypes.EMAIL;
     password: string;
   }
 
