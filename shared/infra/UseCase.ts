@@ -1,10 +1,8 @@
-import { UseCase } from './UseCase';
-
-export class Query extends UseCase {
+export class UseCase {
   async execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
-    settings: { props: any; cache: {} }
+    settings: { props: any }
   ): Promise<T> {
     const data = await useCaseCall();
     return data;
