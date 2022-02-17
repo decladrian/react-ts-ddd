@@ -1,10 +1,12 @@
+import { SemanticTypes } from '../../../shared/domain/SemainticType';
+
 export namespace PostModels {
   export interface model {
-    id: number;
-    user: number;
+    id: SemanticTypes.ID;
+    user: SemanticTypes.ID;
     title: string;
     content: string;
-    created_at: string;
+    created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   }
 
   export type collection = model[];
@@ -16,18 +18,18 @@ export namespace PostModels {
   export type likeResponse = { success: boolean; like: boolean };
 
   export type saveBody = {
-    id?: number;
+    id?: SemanticTypes.ID;
     title: string;
     content: string;
-    created_at: string;
+    created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   };
 
-  export type likeBody = { id: number };
+  export type likeBody = { id: SemanticTypes.ID };
 
   export interface useCases {
-    fetch: (id: number) => Promise<model>;
+    fetch: (id: SemanticTypes.ID) => Promise<model>;
     findAll: () => Promise<collection>;
     save: (post: saveBody) => Promise<saveResponse>;
-    like: (id: number) => Promise<likeResponse>;
+    like: (id: SemanticTypes.ID) => Promise<likeResponse>;
   }
 }
