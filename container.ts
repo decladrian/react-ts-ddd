@@ -11,8 +11,8 @@ import { Analytics } from './shared/infra/utils/Analytics';
 export interface Registry {
   postRepository: PostModels.useCases;
   loginRepository: AuthModel.useCases;
-  Command: Command;
-  Query: Query;
+  Command: UseCase;
+  Query: UseCase;
   analytics: Analytics;
   Logger: any;
 }
@@ -22,9 +22,9 @@ const registry = {
 
   loginRepository: new LoginRepository(),
 
-  Command,
+  Command: Command,
 
-  Query,
+  Query: Query,
 
   Logger: console,
 
