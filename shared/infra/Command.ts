@@ -1,5 +1,4 @@
 import { container } from '../../container';
-import { UseCase } from './UseCase';
 
 const Logger = container.Logger;
 export class Command {
