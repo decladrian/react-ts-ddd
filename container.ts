@@ -21,6 +21,10 @@ const registry = {
 
   loginRepository: new LoginRepository(),
 
+  Command,
+
+  Query
+
   resolveRepository: async (tag, repo, config) => {
     //throw { error: 'JJ', data: config.params };
     const result = await repo;
