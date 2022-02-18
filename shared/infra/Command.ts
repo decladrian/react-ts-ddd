@@ -2,6 +2,10 @@ import { container } from '../../container';
 import { UseCase } from './UseCase';
 
 export class Command extends UseCase {
+  constructor(protected logger, protected alert) {
+    super(logger);
+  }
+
   async execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
