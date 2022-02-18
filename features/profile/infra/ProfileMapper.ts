@@ -9,7 +9,7 @@ export class ProfileMapper {
       birthday: DateMapper.nativeDateToStringFormat(
         form.birthday,
         'YYYY-MM-DD'
-      ),,
+      ),
     };
   }
 }
