@@ -13,7 +13,6 @@ export class Command extends UseCase {
   ): Promise<T> {
     try {
       var data = await useCaseCall();
-      this.alert('Holiiii');
       this.logger.log('RUN COMMAND:', key, data, settings);
     } catch (e) {
       throw { error: e.message };
