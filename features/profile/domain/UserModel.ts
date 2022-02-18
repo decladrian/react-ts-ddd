@@ -8,6 +8,8 @@ export namespace UserModel {
     birthday: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   }
 
+  export type key = keyof Omit<model, 'id'>;
+
   export type editRequest = Omit<model, 'id'>;
 
   export type editResponse = { success: boolean };

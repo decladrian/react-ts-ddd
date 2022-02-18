@@ -20,19 +20,14 @@ export interface Registry {
 
 export const libs = {
   Logger: console,
-
   analytics: Analytics,
 };
 
-const registry = {
+const infra = {
   postRepository: new PostRepository(),
-
   profileRepository: new ProfileRepository(),
-
   loginRepository: new LoginRepository(),
-
   Command: new Command(console, (data) => alert(data)),
-
   Query: new Query(console),
 };
 
@@ -40,4 +35,4 @@ const mocks = {
   postRepository: new PostRepositoryMock(),
 };
 
-export const container: Registry = { ...registry, ...mocks };
+export const container: Registry = { ...infra, ...mocks };
