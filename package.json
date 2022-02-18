@@ -9,7 +9,6 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-scripts": "^5.0.0",
-    "tsyringe": "4.6.0",
     "typescript": "^3.2.1 || ^4"
   },
   "devDependencies": {
