@@ -13,12 +13,12 @@ export interface Registry {
   loginRepository: AuthModel.useCases;
   Command: UseCase;
   Query: UseCase;
-  analytics: Analytics;
-  Logger: any;
 }
 
 export const libs = {
   Logger: console,
+
+  analytics: Analytics,
 };
 
 const registry = {
@@ -29,10 +29,6 @@ const registry = {
   Command: new Command(console, (data) => alert(data)),
 
   Query: new Query(console),
-
-  Logger: console,
-
-  analytics: Analytics,
 };
 
 const mocks = {

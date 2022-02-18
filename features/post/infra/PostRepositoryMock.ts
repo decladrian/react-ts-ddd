@@ -1,4 +1,4 @@
-import {libs } from '../../../container';
+import { libs } from '../../../container';
 import { PostMock } from '../domain/mocks/post';
 import { PostCollectionMock } from '../domain/mocks/post-collection';
 import { PostLikeMock } from '../domain/mocks/post-like';
