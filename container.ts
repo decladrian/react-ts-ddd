@@ -22,9 +22,9 @@ const registry = {
 
   loginRepository: new LoginRepository(),
 
-  Command: new Command(console, alert),
+  Command: new Command(console, (data) => alert(data)),
 
-  Query: new Query(console, alert),
+  Query: new Query(console),
 
   Logger: console,
 
