@@ -17,7 +17,7 @@ export namespace PostModels {
 
   export type likeResponse = { success: boolean; like: boolean };
 
-  export type saveBody = {
+  export type saveRequest = {
     id?: SemanticTypes.ID;
     title: string;
     content: string;
@@ -29,7 +29,7 @@ export namespace PostModels {
   export interface useCases {
     fetch: (id: SemanticTypes.ID) => Promise<model>;
     findAll: () => Promise<collection>;
-    save: (post: saveBody) => Promise<saveResponse>;
+    save: (post: saveRequest) => Promise<saveResponse>;
     like: (id: SemanticTypes.ID) => Promise<likeResponse>;
   }
 }

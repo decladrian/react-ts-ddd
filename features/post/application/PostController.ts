@@ -3,7 +3,10 @@ import { Controller } from '../../../shared/application/Controller';
 import { PostModels } from '../domain/PostModels';
 import { ValidatePost } from './ValidatePost';
 
-export class PostController extends Controller implements PostModels.useCases {
+export class PostController 
+  extends Controller 
+  implements PostModels.useCases {
+      
   private readonly repository = container.postRepository;
 
   save(post) {
