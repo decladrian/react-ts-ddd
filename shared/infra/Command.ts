@@ -2,7 +2,7 @@ import { container } from '../../container';
 import { UseCase } from './UseCase';
 
 export class Command extends UseCase {
-  constructor(protected logger) {
+  constructor(protected logger, private alert) {
     super(logger);
   }
 
