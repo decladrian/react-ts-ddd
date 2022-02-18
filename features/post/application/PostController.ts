@@ -22,7 +22,7 @@ export class PostController extends Controller implements PostModels.useCases {
     });
   }
 
-  fetch(id: number) {
+  find(id: number) {
     return this.query.execute('POST', () => this.repository.fetch(id), {
       params: { id },
     });

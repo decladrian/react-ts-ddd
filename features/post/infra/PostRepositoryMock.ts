@@ -8,7 +8,7 @@ import { PostModels } from '../domain/PostModels';
 export class PostRepositoryMock implements PostModels.useCases {
   private readonly logger = libs.Logger;
 
-  fetch = async (id: number) => {
+  find = async (id: number) => {
     this.logger.log('FETCH post ', id);
     return PostMock;
   };

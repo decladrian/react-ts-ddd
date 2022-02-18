@@ -5,7 +5,7 @@ import { PostSaveMock } from '../domain/mocks/post-save';
 import { PostModels } from '../domain/PostModels';
 
 export class PostRepository implements PostModels.useCases {
-  fetch = async (id: number) => {
+  find = async (id: number) => {
     return PostMock;
   };
 

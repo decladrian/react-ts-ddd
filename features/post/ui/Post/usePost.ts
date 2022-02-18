@@ -6,7 +6,7 @@ export const usePost = () => {
 
   useEffect(() => {
     const mockPostId = 1;
-    new PostController().fetch(mockPostId).then((post) => setPost(post));
+    new PostController().find(mockPostId).then((post) => setPost(post));
   }, []);
 
   return {

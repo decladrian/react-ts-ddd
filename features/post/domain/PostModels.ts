@@ -26,7 +26,7 @@ export namespace PostModels {
   export type likeRequest = { id: SemanticTypes.ID };
 
   export interface useCases {
-    fetch: (id: SemanticTypes.ID) => Promise<model>;
+    find: (id: SemanticTypes.ID) => Promise<model>;
     findAll: () => Promise<collection>;
     save: (post: saveRequest) => Promise<saveResponse>;
     like: (id: SemanticTypes.ID) => Promise<likeResponse>;
