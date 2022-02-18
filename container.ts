@@ -1,6 +1,7 @@
 import { PostModels } from './features/post/domain/PostModels';
 import { PostRepository } from './features/post/infra/PostRepository';
 import { PostRepositoryMock } from './features/post/infra/PostRepositoryMock';
+import { UserModel } from './features/profile/domain/UserModel';
 import { ProfileRepository } from './features/profile/infra/ProfileRepository';
 import { AuthModel } from './features/signin/domain/AuthModel';
 import { LoginRepository } from './features/signin/infra/LoginRepository';

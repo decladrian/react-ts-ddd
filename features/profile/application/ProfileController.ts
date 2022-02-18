@@ -6,13 +6,13 @@ export class ProfileController
   extends Controller
   implements UserModel.useCases
 {
-  private readonly repository = container;
+  private readonly repository = container.profileRepository;
 
   async find() {
-    return {} as any;
+    return this.repository.find();
   }
 
   async edit(profile) {
-    return {} as any;
+    return this.repository.edit(profile);
   }
 }
