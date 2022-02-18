@@ -12,6 +12,7 @@ import { Analytics } from './shared/infra/utils/Analytics';
 export interface Registry {
   postRepository: PostModels.useCases;
   loginRepository: AuthModel.useCases;
+  profileRepository: UserModel.useCases;
   Command: UseCase;
   Query: UseCase;
 }
