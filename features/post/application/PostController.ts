@@ -23,9 +23,13 @@ export class PostController extends Controller implements PostModels.useCases {
   }
 
   like(id: number) {
-    return this.command.execute(this.prefix.concat("_LIKE"), () => this.repository.like(id), {
-      params: { id },
-    });
+    return this.command.execute(
+      this.prefix.concat('_LIKE'),
+      () => this.repository.like(id),
+      {
+        params: { id },
+      }
+    );
   }
 
   find(id: number) {
@@ -36,7 +40,7 @@ export class PostController extends Controller implements PostModels.useCases {
 
   findAll() {
     return this.query.execute(
-      this.prefix.concat("_COLLECTION"),
+      this.prefix.concat('_COLLECTION'),
       () => this.repository.findAll(),
       {}
     );

@@ -1,6 +1,7 @@
 import { container } from '../../../container';
 import { Controller } from '../../../shared/application/Controller';
 import { UserModel } from '../domain/UserModel';
+import { ValidateUser } from './Validation';
 
 export class ProfileController
   extends Controller
@@ -14,6 +15,9 @@ export class ProfileController
   }
 
   async edit(profile) {
+    if (!ValidateUser(profile)) {
+      throw new Error('Invalid user data');
+    }
     return this.command.execute(
       this.prefix.concat('_EDIT'),
       () => this.repository.edit(profile),
