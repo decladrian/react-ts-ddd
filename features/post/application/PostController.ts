@@ -9,6 +9,7 @@ export class PostController extends Controller implements PostModels.useCases {
   private prefix = 'POST';
 
   save(post) {
+    this.logger.log('Logger');
     if (!ValidatePost(post)) {
       throw new Error('Invalid Post');
     }
