@@ -9,22 +9,22 @@ export class PostRepositoryMock implements PostModels.useCases {
   private readonly logger = libs.Logger;
 
   find = async (id: number) => {
-    this.logger.log('FETCH post ', id);
+    this.logger.log('FIND MOCK post ', id);
     return PostMock;
   };
 
   findAll = async () => {
-    this.logger.log('FINDALL posts');
+    this.logger.log('FINDALL MOCK posts');
     return PostCollectionMock.posts;
   };
 
   save = async (post) => {
-    this.logger.log('SAVE post', post);
+    this.logger.log('SAVE MOCK post', post);
     return PostSaveMock;
   };
 
   like = async (id) => {
-    this.logger.log('LIKE post', id);
+    this.logger.log('LIKE MOCK post', id);
     return PostLikeMock;
   };
 }
