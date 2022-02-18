@@ -1,9 +1,9 @@
 export abstract class UseCase {
-  execute<T>(
+  constructor(protected logger) {}
+
+  abstract execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
     settings?: { params?: any }
-  ): Promise<T> {
-    return useCaseCall();
-  }
+  ): Promise<T>;
 }

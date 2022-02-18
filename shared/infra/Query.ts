@@ -1,7 +1,7 @@
 import { UseCase } from './UseCase';
 
-export class Query {
-  static async execute<T>(
+export class Query extends UseCase {
+  async execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
     settings?: { params?: any; cache?: {} }

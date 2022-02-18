@@ -22,7 +22,7 @@ const registry = {
 
   loginRepository: new LoginRepository(),
 
-  Command: new Command(console),
+  Command: new Command(console, alert),
 
   Query: Query,
 

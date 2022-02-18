@@ -1,7 +1,10 @@
-import { container, libs } from '../../container';
+import { container } from '../../container';
+import { UseCase } from './UseCase';
 
-export class Command {
-  constructor(private logger) {}
+export class Command extends UseCase {
+  constructor(protected logger) {
+    super(logger);
+  }
 
   async execute<T>(
     key: string,
@@ -9,8 +12,9 @@ export class Command {
     settings?: { params?: any }
   ): Promise<T> {
     try {
-      this.logger.log('RUN COMMAND:', key);
       var data = await useCaseCall();
+      this.alert('Holi');
+      this.logger.log('RUN COMMAND:', key, data, settings);
     } catch (e) {
       throw { error: e.message };
     }
