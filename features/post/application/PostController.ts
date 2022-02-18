@@ -5,7 +5,6 @@ import { ValidatePost } from './ValidatePost';
 
 export class PostController extends Controller implements PostModels.useCases {
   private readonly repository = container.postRepository;
-
   private prefix = 'POST';
 
   save(post) {
