@@ -7,8 +7,8 @@ export class PostController extends Controller implements PostModels.useCases {
   private readonly repository = container.postRepository;
 
   save(post) {
-    if (!ValidatePost(post)) {
-      throw new Error('Invalid data');
+    if (ValidatePost(post)) {
+      throw new ErrorCommand('Invalid post', 'id', 401);
     }
 
     return this.command.execute('SAVE_POST', () => this.repository.save(post), {
