@@ -21,7 +21,7 @@ export class ProfileController
     return this.command.execute(
       this.prefix.concat('_EDIT'),
       () => this.repository.edit(profile),
-      { params: profile }
+      { payload: profile }
     );
   }
 }

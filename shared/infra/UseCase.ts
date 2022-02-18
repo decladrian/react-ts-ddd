@@ -4,6 +4,6 @@ export abstract class UseCase {
   abstract execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
-    settings?: { params?: any }
+    settings?: { payload?: any }
   ): Promise<T>;
 }

@@ -16,7 +16,7 @@ export class PostController extends Controller implements PostModels.useCases {
       this.prefix.concat('_SAVE'),
       () => this.repository.save(post),
       {
-        params: { post },
+        payload: { post },
       }
     );
   }
@@ -26,14 +26,14 @@ export class PostController extends Controller implements PostModels.useCases {
       this.prefix.concat('_LIKE'),
       () => this.repository.like(id),
       {
-        params: { id },
+        payload: { id },
       }
     );
   }
 
   find(id: number) {
     return this.query.execute(this.prefix, () => this.repository.find(id), {
-      params: { id },
+      payload: { id },
     });
   }
 
