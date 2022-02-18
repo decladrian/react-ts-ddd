@@ -1,6 +1,5 @@
 import { container } from '../../../container';
 import { Controller } from '../../../shared/application/Controller';
-import { ErrorCommand } from '../../../shared/application/ErrorCommand';
 import { PostModels } from '../domain/PostModels';
 import { ValidatePost } from './ValidatePost';
 

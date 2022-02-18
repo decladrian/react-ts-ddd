@@ -1,4 +1,5 @@
 import { container } from '../../container';
+import { ErrorCommand } from '../application/ErrorCommand';
 import { UseCase } from './UseCase';
 
 export class Command extends UseCase {
@@ -15,7 +16,7 @@ export class Command extends UseCase {
       var data = await useCaseCall();
       this.logger.log('RUN COMMAND:', key, data, settings);
     } catch (e) {
-      throw { error: e.message };
+      throw new ErrorCommand(e.message, '', e.code);
     }
     return data;
   }
