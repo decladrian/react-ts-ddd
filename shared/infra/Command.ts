@@ -1,4 +1,4 @@
-import { container, libs } from '../../container';
+import { libs } from '../../container';
 
 const Logger = libs.Logger;
 export class Command {
