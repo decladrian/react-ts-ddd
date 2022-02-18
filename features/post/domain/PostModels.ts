@@ -8,14 +8,11 @@ export namespace PostModels {
     content: string;
     created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   }
-
   export type collection = model[];
 
   export type key = keyof model;
 
   export type saveResponse = { success: boolean };
-
-  export type likeResponse = { success: boolean; like: boolean };
 
   export type saveRequest = {
     id?: SemanticTypes.ID;
@@ -24,6 +21,8 @@ export namespace PostModels {
     created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   };
 
+  export type likeResponse = { success: boolean; like: boolean };
+  
   export type likeRequest = { id: SemanticTypes.ID };
 
   export interface useCases {
