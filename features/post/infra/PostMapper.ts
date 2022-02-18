@@ -3,7 +3,7 @@ import { PostModels } from '../domain/PostModels';
 import { FormModel } from './FormModel';
 
 export class PostMapper {
-  formToDTO(form: FormModel): PostModels.saveBody {
+  formToDTO(form: FormModel): PostModels.saveRequest {
     return {
       ...form,
       created_at: DateMapper.nativeDateToStringFormat(form.created_at),

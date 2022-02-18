@@ -22,7 +22,7 @@ export namespace PostModels {
   };
 
   export type likeResponse = { success: boolean; like: boolean };
-  
+
   export type likeRequest = { id: SemanticTypes.ID };
 
   export interface useCases {

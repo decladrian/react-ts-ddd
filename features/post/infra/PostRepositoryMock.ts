@@ -1,3 +1,4 @@
+import {libs } from '../../../container';
 import { PostMock } from '../domain/mocks/post';
 import { PostCollectionMock } from '../domain/mocks/post-collection';
 import { PostLikeMock } from '../domain/mocks/post-like';
@@ -5,23 +6,25 @@ import { PostSaveMock } from '../domain/mocks/post-save';
 import { PostModels } from '../domain/PostModels';
 
 export class PostRepositoryMock implements PostModels.useCases {
+  private readonly logger = libs.Logger;
+
   fetch = async (id: number) => {
-    console.log('Mock fetch');
+    this.logger.log('FETCH post ', id);
     return PostMock;
   };
 
   findAll = async () => {
-    console.log('Mock findall');
+    this.logger.log('FINDALL posts');
     return PostCollectionMock.posts;
   };
 
   save = async (post) => {
-    console.log('Mock save');
+    this.logger.log('SAVE post', post);
     return PostSaveMock;
   };
 
   like = async (id) => {
-    console.log('Mock like');
+    this.logger.log('LIKE post', id);
     return PostLikeMock;
   };
 }

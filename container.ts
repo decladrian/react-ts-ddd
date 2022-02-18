@@ -17,6 +17,10 @@ export interface Registry {
   Logger: any;
 }
 
+export const libs = {
+  Logger: console,
+};
+
 const registry = {
   postRepository: new PostRepository(),
 
@@ -32,7 +36,7 @@ const registry = {
 };
 
 const mocks = {
-  // postRepository: new PostRepositoryMock(),
+  postRepository: new PostRepositoryMock(),
 };
 
 export const container: Registry = { ...registry, ...mocks };

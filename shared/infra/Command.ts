@@ -8,7 +8,7 @@ export class Command extends UseCase {
 
   async execute<T>(
     key: string,
-    useCaseCall: () => Promise<T>,
+    useCaseCall: (params?: any) => Promise<T>,
     settings?: { params?: any }
   ): Promise<T> {
     try {
