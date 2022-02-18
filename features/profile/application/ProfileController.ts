@@ -7,12 +7,17 @@ export class ProfileController
   implements UserModel.useCases
 {
   private readonly repository = container.profileRepository;
+  private prefix = 'PROFILE';
 
   async find() {
-    return this.repository.find();
+    return this.query.execute(this.prefix, () => this.repository.find());
   }
 
   async edit(profile) {
-    return this.repository.edit(profile);
+    return this.command.execute(
+      this.prefix.concat('_EDIT'),
+      () => this.repository.edit(profile),
+      { params: profile }
+    );
   }
 }
