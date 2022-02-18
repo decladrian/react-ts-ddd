@@ -24,7 +24,7 @@ export namespace PostModels {
     created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   };
 
-  export type likeBody = { id: SemanticTypes.ID };
+  export type likeRequest = { id: SemanticTypes.ID };
 
   export interface useCases {
     fetch: (id: SemanticTypes.ID) => Promise<model>;
