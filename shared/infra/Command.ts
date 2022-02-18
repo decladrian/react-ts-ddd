@@ -1,4 +1,3 @@
-import { container } from '../../container';
 import { ErrorCommand } from '../application/ErrorCommand';
 import { UseCase } from './UseCase';
 
