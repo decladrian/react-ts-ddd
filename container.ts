@@ -35,4 +35,8 @@ const mocks = {
   // postRepository: new PostRepositoryMock(),
 };
 
+export const libs = {
+  Logger: console,
+};
+
 export const container: Registry = { ...registry, ...mocks };
