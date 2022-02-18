@@ -1,13 +1,13 @@
 import { container, libs } from '../../container';
 
+const Logger = libs.Logger;
 export class Command {
-  private readonly Logger = libs.Logger;
   static async execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
     settings?: { params?: any }
   ): Promise<T> {
-    this.Logger.log('RUN COMMAND:', key);
+    Logger.log('RUN COMMAND:', key);
     try {
       var data = await useCaseCall();
     } catch (e) {
