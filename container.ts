@@ -28,7 +28,7 @@ const infra = {
   profileRepository: new ProfileRepository(),
   loginRepository: new LoginRepository(),
   Command: new Command(libs.Logger, (data) => alert(data)),
-  Query: new Query(ibs.Logger),
+  Query: new Query(libs.Logger),
 };
 
 const mocks = {
