@@ -2,8 +2,8 @@ import { container } from '../../container';
 import { UseCase } from './UseCase';
 
 export class Command extends UseCase {
-  constructor(protected logger, private alert) {
-    super(logger);
+  constructor(protected logger, protected alert) {
+    super(logger, alert);
   }
 
   async execute<T>(

@@ -1,5 +1,5 @@
 export abstract class UseCase {
-  constructor(protected logger) {}
+  constructor(protected logger, protected alert) {}
 
   abstract execute<T>(
     key: string,

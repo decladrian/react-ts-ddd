@@ -24,7 +24,7 @@ const registry = {
 
   Command: new Command(console, alert),
 
-  Query: new Query(console),
+  Query: new Query(console, alert),
 
   Logger: console,
 
