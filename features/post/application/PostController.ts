@@ -10,6 +10,7 @@ export class PostController extends Controller implements PostModels.useCases {
     if (!ValidatePost(post)) {
       throw new Error('Invalid data');
     }
+
     return this.command.execute('SAVE_POST', () => this.repository.save(post), {
       params: { post },
     });

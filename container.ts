@@ -22,7 +22,7 @@ const registry = {
 
   loginRepository: new LoginRepository(),
 
-  Command: Command,
+  Command: new Command(console),
 
   Query: Query,
 
@@ -33,10 +33,6 @@ const registry = {
 
 const mocks = {
   // postRepository: new PostRepositoryMock(),
-};
-
-export const libs = {
-  Logger: console,
 };
 
 export const container: Registry = { ...registry, ...mocks };

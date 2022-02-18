@@ -1,7 +1,9 @@
-export interface UseCase {
-  execute: <T>(
+export abstract class UseCase {
+  execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
     settings?: { params?: any }
-  ) => Promise<T>;
+  ): Promise<T> {
+    return useCaseCall();
+  }
 }

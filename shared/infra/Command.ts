@@ -1,14 +1,15 @@
-import { libs } from '../../container';
+import { container, libs } from '../../container';
 
-const Logger = libs.Logger;
 export class Command {
-  static async execute<T>(
+  constructor(private logger) {}
+
+  async execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
     settings?: { params?: any }
   ): Promise<T> {
-    Logger.log('RUN COMMAND:', key);
     try {
+      this.logger.log('RUN COMMAND:', key);
       var data = await useCaseCall();
     } catch (e) {
       throw { error: e.message };
