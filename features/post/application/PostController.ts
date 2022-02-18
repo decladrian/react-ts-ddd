@@ -41,8 +41,7 @@ export class PostController extends Controller implements PostModels.useCases {
   findAll() {
     return this.query.execute(
       this.prefix.concat('_COLLECTION'),
-      () => this.repository.findAll(),
-      {}
+      () => this.repository.findAll()
     );
   }
 }
