@@ -3,7 +3,7 @@ import { libs } from '../../../container';
 export class PostSubscriber {
   constructor(private subject: any) {}
 
-  get $subject() {
+  getSubject() {
     return this.subject;
   }
 }
