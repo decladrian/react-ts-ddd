@@ -6,10 +6,11 @@ import { PostSubscriber } from '../infra/PostSbuscriber';
 
 export class PostController extends Controller implements PostModels.useCases {
   private readonly repository = container.postRepository;
+  private readonly $postSubscriber = container.$postSubscriber;
   private prefix = 'POST';
 
   save(post) {
-    PostSubscriber.$subject.next(post);
+    $postSubscriber.getSubject().next(post);
     const postEntity = new PostEntity(post);
     if (!postEntity.validate()) {
       throw new Error('Invalid Post');

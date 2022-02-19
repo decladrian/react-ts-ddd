@@ -5,7 +5,14 @@ import { PostModels } from '../../domain/PostModels';
 import { PostMapper } from '../../infra/PostMapper';
 export const usePostForm = (navigate) => {
   useEffect(() => {
-    const subscription = container.$postSubscriber.getSubject();
+    const subscription = container.$postSubscriber
+      .getSubject()
+      .subscribe((data) => {
+        console.log(data);
+      });
+    return () => {
+      subscription.unsubscirbe();
+    };
   }, []);
 
   const reducer = (state, action) => {
