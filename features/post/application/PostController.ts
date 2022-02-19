@@ -10,7 +10,7 @@ export class PostController extends Controller implements PostModels.useCases {
   private prefix = 'POST';
 
   save(post) {
-    $postSubscriber.getSubject().next(post);
+    this.$postSubscriber.getSubject().next(post);
     const postEntity = new PostEntity(post);
     if (!postEntity.validate()) {
       throw new Error('Invalid Post');
