@@ -12,7 +12,7 @@ export const usePostForm = (navigate) => {
     return () => {
       subscription.unsubscribe();
     };
-  });
+  }, []);
 
   const reducer = (state, action) => {
     return { ...state, [action.key]: action.value, created_at: new Date() };
