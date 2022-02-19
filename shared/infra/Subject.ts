@@ -1,6 +1,9 @@
 import { Subscription } from './Subscription';
 
-export const Subject = function (subscribersStateChangeNotificationCallback) {
+export const Subject = function (
+  handlerId,
+  subscribersStateChangeNotificationCallback
+) {
   const self = this;
 
   const handlers = {};
@@ -48,7 +51,7 @@ export const Subject = function (subscribersStateChangeNotificationCallback) {
   };
 
   self.subscribe = (handler) => {
-    let handlerId = createGuid();
+    //let handlerId = createGuid();
     handlers[handlerId] = handler;
 
     if (
