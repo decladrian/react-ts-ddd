@@ -1,7 +1,15 @@
 import { SemanticTypes } from '../../shared/domain/SemainticType';
 
+type CacheRecord = {
+  [key: string]: {
+    payload: any;
+    added_at: SemanticTypes.DATETIME;
+    expire_at?: SemanticTypes.DATETIME;
+  };
+};
+
 export class InMemoryCache {
-  static dir = {} as any;
+  static dir: CacheRecord = {};
 
   static get(tag) {
     const cache = this.dir[tag];
