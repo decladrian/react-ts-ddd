@@ -1,3 +1,5 @@
+import { Subscription } from './Subscription';
+
 export const Subject = function (subscribersStateChangeNotificationCallback) {
   const self = this;
 
