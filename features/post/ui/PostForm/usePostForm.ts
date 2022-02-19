@@ -14,7 +14,7 @@ export const usePostForm = (navigate) => {
     };
   }, []);
 
-  const { form, dispatch, changeValue } = usePostFormReducer();
+  const { form, changeValue } = usePostFormReducer();
 
   const submit = async () => {
     const mappedPost = new PostMapper().formToDTO(form);
