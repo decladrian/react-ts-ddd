@@ -4,7 +4,7 @@ export class InMemoryCache {
   static dir = {} as any;
 
   static get(tag) {
-    const cache = InMemoryCache.dir[tag];
+    const cache = this.dir[tag];
     if (!cache) return;
     if (cache && new Date().getTime() > cache.expire_at) {
       this.remove(tag);
