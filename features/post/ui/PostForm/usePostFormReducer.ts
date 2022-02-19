@@ -17,5 +17,6 @@ export const usePostFormReducer = () => {
   return {
     form,
     dispatch,
+    changeValue,
   };
 };

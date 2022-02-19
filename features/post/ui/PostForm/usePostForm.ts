@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect } from 'react';
 import { container } from '../../../../container';
 import { PostController } from '../../application/PostController';
 import { PostMapper } from '../../infra/PostMapper';
