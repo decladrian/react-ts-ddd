@@ -1,4 +1,4 @@
-import { DateMapper } from '../../../shared/infra/utils/DateMapper';
+import { DateMapper } from '../../../shared/infra/libs/DateMapper';
 import { PostModels } from '../domain/PostModels';
 import { FormModel } from './FormModel';
 
