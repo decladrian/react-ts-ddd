@@ -1,7 +1,7 @@
 import { container } from '../../../container';
 import { Controller } from '../../../shared/application/Controller';
 import { UserModel } from '../domain/UserModel';
-import { ValidateUser } from './Validation';
+import { ProfileEntity } from '../domain/ProfileEntity';
 
 export class ProfileController
   extends Controller
@@ -15,7 +15,8 @@ export class ProfileController
   }
 
   async edit(profile) {
-    if (!ValidateUser(profile)) {
+    const profileEntity = new ProfileEntity(profile);
+    if (!profileEntity.validate()) {
       throw new Error('Invalid user data');
     }
     return this.command.execute(
