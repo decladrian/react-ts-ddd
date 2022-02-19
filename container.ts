@@ -32,7 +32,7 @@ const infra = {
 };
 
 const mocks = {
-  postRepository: new PostRepositoryMock(),
+  //postRepository: new PostRepositoryMock(),
 };
 
 export const container: Registry = { ...infra, ...mocks };

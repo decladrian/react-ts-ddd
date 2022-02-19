@@ -15,7 +15,6 @@ export class PostEntity extends Entity<PostModels.model> {
     if (content.length < 3) {
       this.errors.content = 'Min lenght 3';
     }
-    console.log('ERRORS', this.errors);
 
     return Object.keys(this.errors).length === 0;
   }

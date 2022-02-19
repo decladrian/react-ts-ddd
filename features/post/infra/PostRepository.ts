@@ -4,20 +4,30 @@ import { PostLikeMock } from '../domain/mocks/post-like';
 import { PostSaveMock } from '../domain/mocks/post-save';
 import { PostModels } from '../domain/PostModels';
 
+const URL = "https://reqres.in/api/users";
+
 export class PostRepository implements PostModels.useCases {
   find = async (id: number) => {
-    return PostMock;
+    return fetch(URL)
+      .then((response) => response.json())
+      .then(() => PostMock);
   };
 
   findAll = async () => {
-    return PostCollectionMock.posts;
+    return fetch(URL)
+      .then((response) => response.json())
+      .then(() => PostCollectionMock.posts);
   };
 
   save = async (post) => {
-    return PostSaveMock;
+    return fetch(URL)
+      .then((response) => response.json())
+      .then(() => PostSaveMock);
   };
 
   like = async (id) => {
-    return PostLikeMock;
+    return fetch(URL)
+      .then((response) => response.json())
+      .then(() => PostLikeMock);
   };
 }
