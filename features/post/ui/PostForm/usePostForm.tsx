@@ -5,13 +5,11 @@ import { PostModels } from '../../domain/PostModels';
 import { PostMapper } from '../../infra/PostMapper';
 export const usePostForm = (navigate) => {
   useEffect(() => {
-    const subscription = container.$postSubscriber
-      .getSubject()
-      .subscribe((data) => {
-        console.log(data);
-      });
+    const subscription = container.postSubscriber.$subject.subscribe((data) => {
+      console.log('MMMM', data);
+    });
     return () => {
-      subscription.unsubscirbe();
+      subscription.unsubscribe();
     };
   }, []);
 

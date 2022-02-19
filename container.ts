@@ -18,7 +18,7 @@ export interface Registry {
   profileRepository: UserModel.useCases;
   Command: UseCase;
   Query: UseCase;
-  $postSubscriber: PostSubscriber;
+  postSubscriber: PostSubscriber;
 }
 
 export const libs = {
@@ -32,7 +32,7 @@ const infra = {
   profileRepository: new ProfileRepository(),
   loginRepository: new LoginRepository(),
   //@ts-ignore
-  $postSubscriber: new PostSubscriber(new Subject(() => {})),
+  postSubscriber: new PostSubscriber(new Subject(() => {})),
   Command: new Command(libs.Logger, (data) => alert(data)),
   Query: new Query(libs.Logger),
 };

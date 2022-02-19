@@ -2,7 +2,6 @@ import { container } from '../../../container';
 import { Controller } from '../../../shared/application/Controller';
 import { PostEntity } from '../domain/PostEntity';
 import { PostModels } from '../domain/PostModels';
-import { PostSubscriber } from '../infra/PostSbuscriber';
 
 export class PostController extends Controller implements PostModels.useCases {
   private readonly repository = container.postRepository;
@@ -10,9 +9,9 @@ export class PostController extends Controller implements PostModels.useCases {
   private prefix = 'POST';
 
   save(post) {
-    this.$postSubscriber.getSubject().next(post);
     const postEntity = new PostEntity(post);
     if (!postEntity.validate()) {
+      this.$postSubscriber.getSubject().next(postEntity.getErrors());
       throw new Error('Invalid Post');
     }
     return this.command.execute(
