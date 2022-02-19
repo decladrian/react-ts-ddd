@@ -5,13 +5,13 @@ import { PostModels } from '../domain/PostModels';
 
 export class PostController extends Controller implements PostModels.useCases {
   private readonly repository = container.postRepository;
-  private readonly $postSubscriber = container.$postSubscriber;
+  private readonly postSubscriber = container.postSubscriber;
   private prefix = 'POST';
 
   save(post) {
     const postEntity = new PostEntity(post);
     if (!postEntity.validate()) {
-      this.$postSubscriber.getSubject().next(postEntity.getErrors());
+      this.postSubscriber.$subject.next(postEntity.getErrors());
       throw new Error('Invalid Post');
     }
     return this.command.execute(
