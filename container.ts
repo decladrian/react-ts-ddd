@@ -31,7 +31,7 @@ const infra = {
   postRepository: new PostRepository(),
   profileRepository: new ProfileRepository(),
   loginRepository: new LoginRepository(),
-  $postSubscriber: new PostSubscriber(Subject),
+  $postSubscriber: new PostSubscriber(new Subject(() => {})),
   Command: new Command(libs.Logger, (data) => alert(data)),
   Query: new Query(libs.Logger),
 };
