@@ -46,4 +46,8 @@ setInterval(() => {
   $sub.next('Saludos cordiales');
 }, 2000);
 
+setInterval(() => {
+  $sub.unsubscribe()
+}, 8000)
+
 export const container: Registry = { ...infra, ...mocks };
