@@ -1,18 +1,9 @@
-import { useReducer } from 'react';
 import { LoginController } from '../../application/LoginController';
-import { AuthModel } from '../../domain/AuthModel';
+import {useLoginReducer}  from './useLoginReducer';
 
 export const useLogin = () => {
-  const reducer = (state, action) => {
-    return { ...state, [action.key]: action.value };
-  };
-
-  const initialState: AuthModel.signinBody = { email: '', password: '' };
-
-  const [form, dispatch] = useReducer(reducer, initialState);
-
-  const updateInput = (key: AuthModel.key, value: any) =>
-    dispatch({ key, value });
+  
+  const {form, updateInput} = useLoginReducer();
 
   const submit = async () => {
     const { success, ...user } = await new LoginController().login(form);
