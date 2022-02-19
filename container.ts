@@ -8,7 +8,7 @@ import { LoginRepository } from './features/signin/infra/LoginRepository';
 import { Command } from './shared/infra/Command';
 import { Query } from './shared/infra/Query';
 import { UseCase } from './shared/infra/UseCase';
-import { Analytics } from './shared/infra/utils/Analytics';
+import { Analytics } from './shared/infra/libs/Analytics';
 import { Subject } from './shared/infra/observable';
 import { PostSubscriber } from './features/post/infra/PostSbuscriber';
 
