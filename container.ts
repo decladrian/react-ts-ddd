@@ -9,7 +9,7 @@ import { Command } from './shared/infra/Command';
 import { Query } from './shared/infra/Query';
 import { UseCase } from './shared/infra/UseCase';
 import { Analytics } from './shared/infra/utils/Analytics';
-import { Subject } from './shared/infra/Subject';
+import { Subject } from './shared/infra/observable';
 
 export interface Registry {
   postRepository: PostModels.useCases;
@@ -22,6 +22,7 @@ export interface Registry {
 export const libs = {
   Logger: console,
   analytics: Analytics,
+  Subject,
 };
 
 const infra = {

@@ -2,6 +2,7 @@ import { container } from '../../../container';
 import { Controller } from '../../../shared/application/Controller';
 import { PostEntity } from '../domain/PostEntity';
 import { PostModels } from '../domain/PostModels';
+import { PostSubscriber } from '../infra/PostSbuscriber';
 
 export class PostController extends Controller implements PostModels.useCases {
   private readonly repository = container.postRepository;
@@ -9,6 +10,7 @@ export class PostController extends Controller implements PostModels.useCases {
 
   save(post) {
     const postEntity = new PostEntity(post);
+    PostSubscriber.$subject.next(post);
     if (!postEntity.validate()) {
       throw new Error('Invalid Post');
     }
