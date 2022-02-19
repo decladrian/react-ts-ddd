@@ -2,29 +2,27 @@ import { SemanticTypes } from '../../../shared/domain/SemainticType';
 import { PostModels } from './PostModels';
 
 export class PostEntity {
-  constructor(private post: PostModels.model) {}
+  private errors = {} as any;
+  constructor(private data: PostModels.model) {}
 
-  get id(): SemanticTypes.ID {
-    return this.post.id;
+  get dto() {
+    return this.data;
   }
 
-  private set id(id) {
-    this.post.id = id;
+  getErrors() {
+    return this.errors;
   }
 
-  get user(): SemanticTypes.ID {
-    return this.post.user;
-  }
+  validate() {
+    const { title, content } = this.data;
+    this.errors = {};
+    if (title.length < 3) {
+      this.errors.tile = 'Min lenght 3';
+    }
+    if (content.length < 3) {
+      this.errors.content = 'Min lenght 3';
+    }
 
-  get title(): string {
-    return this.post.title;
-  }
-
-  get content(): string {
-    return this.post.content;
-  }
-
-  get created_at(): SemanticTypes.DATEFORMAT_YYYY_MM_DDD {
-    return this.post.created_at;
+    return Object.keys(this.errors).length === 0;
   }
 }

@@ -1,22 +1,22 @@
 import { container } from '../../../container';
 import { Controller } from '../../../shared/application/Controller';
+import { PostEntity } from '../domain/PostEntity';
 import { PostModels } from '../domain/PostModels';
-import { ValidatePost } from './ValidatePost';
 
 export class PostController extends Controller implements PostModels.useCases {
   private readonly repository = container.postRepository;
   private prefix = 'POST';
 
   save(post) {
-    this.logger.log('Logger');
-    if (!ValidatePost(post)) {
+    const postEntity = new PostEntity(post);
+    if (!postEntity.validate()) {
       throw new Error('Invalid Post');
     }
     return this.command.execute(
       this.prefix.concat('_SAVE'),
-      () => this.repository.save(post),
+      () => this.repository.save(postEntity.dto),
       {
-        payload: { post },
+        payload: { postEntity },
       }
     );
   }
