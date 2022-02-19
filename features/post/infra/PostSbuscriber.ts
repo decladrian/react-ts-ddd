@@ -1,7 +1,7 @@
 import { libs } from '../../../container';
 
 export class PostSubscriber {
-  constructor(private subject: libs.Subject) {}
+  constructor(private subject: any) {}
 
   get $subject() {
     return this.subject;

@@ -18,6 +18,7 @@ export interface Registry {
   profileRepository: UserModel.useCases;
   Command: UseCase;
   Query: UseCase;
+  $postSubscriber: PostSubscriber;
 }
 
 export const libs = {
