@@ -1,12 +1,11 @@
 import { useEffect, useReducer } from 'react';
+import { container } from '../../../../container';
 import { PostController } from '../../application/PostController';
 import { PostModels } from '../../domain/PostModels';
 import { PostMapper } from '../../infra/PostMapper';
-import { PostSubscriber } from '../../infra/PostSbuscriber';
-
 export const usePostForm = (navigate) => {
   useEffect(() => {
-    const subscription = PostSubscriber.$subject.subscribe((data) => {
+    const subscription = container.$postSubscriber.$subject.subscribe((data) => {
       console.log('Post emit', data);
     });
     return () => {

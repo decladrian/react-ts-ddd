@@ -10,6 +10,7 @@ import { Query } from './shared/infra/Query';
 import { UseCase } from './shared/infra/UseCase';
 import { Analytics } from './shared/infra/utils/Analytics';
 import { Subject } from './shared/infra/observable';
+import { PostSubscriber } from './features/post/infra/PostSbuscriber';
 
 export interface Registry {
   postRepository: PostModels.useCases;
@@ -29,6 +30,7 @@ const infra = {
   postRepository: new PostRepository(),
   profileRepository: new ProfileRepository(),
   loginRepository: new LoginRepository(),
+  $postSubscriber: new PostSubscriber(Subject),
   Command: new Command(libs.Logger, (data) => alert(data)),
   Query: new Query(libs.Logger),
 };

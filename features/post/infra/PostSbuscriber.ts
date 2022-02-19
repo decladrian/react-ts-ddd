@@ -1,8 +1,9 @@
 import { libs } from '../../../container';
 
 export class PostSubscriber {
-  //@ts-ignore
-  static $subject = new libs.Subject((watching: boolean) => {
-    alert(watching);
-  });
+  constructor(private subject: libs.Subject) {}
+
+  get $subject() {
+    return this.subject;
+  }
 }
