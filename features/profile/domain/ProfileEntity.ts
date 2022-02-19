@@ -1,4 +1,5 @@
 import { UserModel } from './UserModel';
+import { Entity } from '../../../shared/domain/Entity';
 
 export class ProfileEntity extends Entity<UserModel.model> {
   validate() {
