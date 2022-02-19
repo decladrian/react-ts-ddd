@@ -4,4 +4,5 @@ export namespace SemanticTypes {
   export type DATEFORMAT_DD_MM_YYYY = string;
   export type ID = number;
   export type NIF = string;
+  export type DATETIME = number;
 }
