@@ -58,6 +58,7 @@ export const Subject = function (subscribersStateChangeNotificationCallback) {
       subscribersStateChangeNotificationCallback(true);
     }
 
+    //@ts-ignore
     return new Subscription(handlerId, unsubscribeNotificationCallback);
   };
 

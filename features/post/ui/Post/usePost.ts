@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Subject } from '../../../../shared/infra/observable/Subject';
 import { PostController } from '../../application/PostController';
-import { PostSubscriber } from '../../infra/PostSbuscriber';
 
 export const usePost = () => {
   const [post, setPost] = useState(null);
