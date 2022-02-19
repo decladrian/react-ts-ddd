@@ -36,19 +36,4 @@ const mocks = {
   //postRepository: new PostRepositoryMock(),
 };
 
-//@ts-ignore
-let $sub = new Subject('post', () => console.log(1));
-const subscription = $sub.subscribe((data) => {
-  console.log('what', data);
-});
-
-setInterval(() => {
-  $sub.next('Saludos cordiales');
-}, 2000);
-
-setInterval(() => {
-  subscription.unsubscribe();
-  $sub = new Subject('post', () => console.log(2));
-}, 8000);
-
 export const container: Registry = { ...infra, ...mocks };
