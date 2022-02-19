@@ -12,7 +12,7 @@ import { Analytics } from './shared/infra/utils/Analytics';
 import { Subject } from './shared/infra/observable';
 import { PostSubscriber } from './features/post/infra/PostSbuscriber';
 
-export interface Registry {
+export interface Contanier {
   postRepository: PostModels.useCases;
   loginRepository: AuthModel.useCases;
   profileRepository: UserModel.useCases;
@@ -41,4 +41,4 @@ const mocks = {
   postRepository: new PostRepositoryMock(),
 };
 
-export const container: Registry = { ...infra, ...mocks };
+export const container: Contanier = { ...infra, ...mocks };
