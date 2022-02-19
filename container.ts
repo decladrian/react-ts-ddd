@@ -37,7 +37,7 @@ const mocks = {
 };
 
 //@ts-ignore
-const $sub = new Subject('post', () => console.log(1));
+let $sub = new Subject('post', () => console.log(1));
 const subscription = $sub.subscribe((data) => {
   console.log('what', data);
 });
@@ -48,6 +48,7 @@ setInterval(() => {
 
 setInterval(() => {
   subscription.unsubscribe();
+  $sub = new Subject('post', () => console.log(2));
 }, 8000);
 
 export const container: Registry = { ...infra, ...mocks };
