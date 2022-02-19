@@ -9,6 +9,7 @@ import { Command } from './shared/infra/Command';
 import { Query } from './shared/infra/Query';
 import { UseCase } from './shared/infra/UseCase';
 import { Analytics } from './shared/infra/utils/Analytics';
+import { Subject } from './shared/infra/Subject';
 
 export interface Registry {
   postRepository: PostModels.useCases;
@@ -34,5 +35,15 @@ const infra = {
 const mocks = {
   //postRepository: new PostRepositoryMock(),
 };
+
+//@ts-ignore
+const $sub = new Subject(() => console.log(1));
+$sub.subscribe((data) => {
+  console.log('what', data);
+});
+
+setInterval(() => {
+  $sub.next('Saludos cordiales');
+}, 2000);
 
 export const container: Registry = { ...infra, ...mocks };
