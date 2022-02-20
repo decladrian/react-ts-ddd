@@ -14,6 +14,7 @@ export class Query extends UseCase {
     const cacheKey = key.concat(JSON.stringify({ payload }));
     const cacheRecord = this.cacheQuery.get(cacheKey);
     if (cache && cacheRecord) {
+      console.log("CACHE OK")
       return cacheRecord as T;
     }
     try {
@@ -23,7 +24,7 @@ export class Query extends UseCase {
       }
       return data;
     } catch {
-      throw new GenericError('UseCaseError');
+      throw new GenericError('UseCaseError!');
     }
   }
 }
