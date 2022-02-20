@@ -12,9 +12,14 @@ export class InMemoryCache {
   static dir: CacheRecord = {};
 
   static get(tag) {
+    console.log('Cache', tag);
     const cache = this.dir[tag];
-    if (!cache) return;
+    if (!cache) {
+      console.log('Cache!', tag);
+      return;
+    }
     if (cache && new Date().getTime() > cache.expire_at) {
+      console.log('-Cache', tag);
       this.remove(tag);
       return;
     }

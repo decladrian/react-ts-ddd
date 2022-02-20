@@ -1,4 +1,5 @@
 import { libs } from '../../../container';
+import { GenericError } from '../../domain/error/GenericError';
 import { UseCase } from './UseCase';
 
 export class Query extends UseCase {
@@ -10,13 +11,19 @@ export class Query extends UseCase {
     settings?: { payload?: any; cache?: boolean }
   ): Promise<T> {
     const { payload, cache } = settings;
-    if (cache && this.cacheQuery.get(key)) {
-      return this.cacheQuery.get(key) as T;
+    const cacheKey = key.concat(JSON.stringify({ payload }));
+    const cacheRecord = this.cacheQuery.get(cacheKey);
+    if (cache && cacheRecord) {
+      return cacheRecord as T;
     }
-    var data = await useCaseCall();
-    if (cache) {
-      this.cacheQuery.set(key, payload);
+    try {
+      const data = (await useCaseCall()) as T;
+      if (cache) {
+        this.cacheQuery.set(cacheKey, data);
+      }
+      return data;
+    } catch {
+      throw new GenericError('UseCaseError');
     }
-    return data;
   }
 }
