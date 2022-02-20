@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { container } from '../../../../container';
 import { ErrorTypes } from '../../../../shared/domain/error/ErrorTypes';
+import { GenericError } from '../../../../shared/domain/error/GenericError';
 import { PostController } from '../../application/PostController';
 import { PostMapper } from '../../infra/PostMapper';
-import { GenericError } from '../../../shared/domain/error/GenericError';
 import { usePostFormReducer } from './usePostFormReducer';
 
 export const usePostForm = (navigate) => {
