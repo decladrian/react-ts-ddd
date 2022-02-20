@@ -11,6 +11,7 @@ export class PostController extends Controller implements PostModels.useCases {
 
   save(payload) {
     const postEntity = new PostEntity(payload);
+    postEntity.set({ title: 'Title' });
     if (!postEntity.validate()) {
       // this.postSubscriber.$subject.next(postEntity.getErrors());
       throw new ValidationError('Invalid post data', postEntity.getErrors());

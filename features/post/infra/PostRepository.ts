@@ -4,7 +4,7 @@ import { PostLikeMock } from '../domain/mocks/post-like';
 import { PostSaveMock } from '../domain/mocks/post-save';
 import { PostModels } from '../domain/PostModels';
 
-const URL = "https://reqres.in/api/users";
+const URL = 'https://reqres.in/api/users';
 
 export class PostRepository implements PostModels.useCases {
   find = async (id: number) => {
@@ -22,7 +22,7 @@ export class PostRepository implements PostModels.useCases {
   save = async (post) => {
     return fetch(URL)
       .then((response) => response.json())
-      .then(() => PostSaveMock);
+      .then(() => ({ ...PostSaveMock, ...post }));
   };
 
   like = async (id) => {

@@ -5,12 +5,13 @@ export abstract class Entity<T> {
     return this.data[key];
   }
 
-  set(key: keyof T, value: any) {
-    this.data[key] = value;
+  set(data: Partial<T>) {
+    this.data = { ...this.data, ...data };
     return this;
   }
 
   protected errors = {} as object;
+
   abstract validate(): boolean;
 
   get dto() {
