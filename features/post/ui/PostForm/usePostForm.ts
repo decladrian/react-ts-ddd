@@ -23,7 +23,7 @@ export const usePostForm = (navigate) => {
     try {
       const result = await new PostController().save(mappedPost);
       navigate('post');
-    } catch (e: GenericError) {
+    } catch (e: any) {
       if (e.type === ErrorTypes.invalidDataExecption) {
         alert(JSON.stringify(e.errors));
       }
