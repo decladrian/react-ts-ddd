@@ -6,7 +6,6 @@ import { ProfileRepository } from './features/profile/infra/ProfileRepository';
 import { Analytics } from './shared/infra/libs/Analytics';
 import { Subject } from './shared/infra/observable';
 import { PostSubscriber } from './features/post/infra/PostSbuscriber';
-import { UseCase } from './shared/application/UseCase/UseCase';
 import { Command } from './shared/application/UseCase/Command';
 import { Query } from './shared/application/UseCase/Query';
 import { InMemoryCache } from './shared/infra/Cache';
@@ -14,8 +13,8 @@ import { InMemoryCache } from './shared/infra/Cache';
 export interface Contanier {
   postRepository: PostModels.useCases;
   profileRepository: UserModel.useCases;
-  Command: UseCase;
-  Query: UseCase;
+  Command: Command;
+  Query: Query;
   postSubscriber: PostSubscriber;
 }
 
