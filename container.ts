@@ -14,7 +14,6 @@ import { PostSubscriber } from './features/post/infra/PostSbuscriber';
 
 export interface Contanier {
   postRepository: PostModels.useCases;
-  loginRepository: AuthModel.useCases;
   profileRepository: UserModel.useCases;
   Command: UseCase;
   Query: UseCase;
@@ -30,7 +29,6 @@ export const libs = {
 const infra = {
   postRepository: new PostRepository(),
   profileRepository: new ProfileRepository(),
-  loginRepository: new LoginRepository(),
   //@ts-ignore
   postSubscriber: new PostSubscriber(new Subject(() => {})),
   Command: new Command(libs.Logger, (data) => alert(data)),
