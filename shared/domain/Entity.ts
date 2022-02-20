@@ -10,7 +10,7 @@ export abstract class Entity<T> {
     return this;
   }
 
-  protected errors = {} as object;
+  protected errors = {} as any;
 
   abstract validate(): boolean;
 
