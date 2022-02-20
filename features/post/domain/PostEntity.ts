@@ -6,7 +6,7 @@ export class PostEntity extends Entity<PostModels.model> {
     const { title, content } = this.data;
     this.errors = {};
     if (title.length < 3) {
-      this.errors.tile = 'Min lenght 3';
+      this.errors.title = 'Min lenght 3';
     }
     if (content.length < 3) {
       this.errors.content = 'Min lenght 3';
