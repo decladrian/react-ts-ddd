@@ -40,7 +40,7 @@ export class PostController extends Controller implements PostModels.useCases {
     return this.query.execute(
       this.prefix,
       () => this.repository.find(payload),
-      { payload }
+      { payload, cache: true }
     );
   }
 

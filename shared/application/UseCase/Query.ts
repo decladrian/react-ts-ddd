@@ -7,7 +7,7 @@ export class Query extends UseCase {
   async execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
-    settings?: { payload?: any; cache?: {} }
+    settings?: { payload?: any; cache?: boolean }
   ): Promise<T> {
     const { payload, cache } = settings;
     if (cache && this.cacheQuery.get(key)) {
