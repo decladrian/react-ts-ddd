@@ -4,7 +4,7 @@ import { PostModels } from './PostModels';
 export class PostEntity extends Entity<PostModels.model> {
   validate() {
     const { title, content } = this.data;
-    this.errors = {} as PostModels.model;
+    this.errors = {} as any;
     if (title.length < 3) {
       this.errors.tile = 'Min lenght 3';
     }
