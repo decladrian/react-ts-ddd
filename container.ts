@@ -3,13 +3,13 @@ import { PostRepository } from './features/post/infra/PostRepository';
 import { PostRepositoryMock } from './features/post/infra/PostRepositoryMock';
 import { UserModel } from './features/profile/domain/UserModel';
 import { ProfileRepository } from './features/profile/infra/ProfileRepository';
-import { AuthModel } from './features/signin/domain/AuthModel';
-import { Command } from './shared/infra/Command';
-import { Query } from './shared/infra/Query';
-import { UseCase } from './shared/infra/UseCase';
 import { Analytics } from './shared/infra/libs/Analytics';
 import { Subject } from './shared/infra/observable';
 import { PostSubscriber } from './features/post/infra/PostSbuscriber';
+import { UseCase } from './shared/application/UseCase/UseCase';
+import { Command } from './shared/application/UseCase/Command';
+import { Query } from './shared/application/UseCase/Query';
+import { InMemoryCache } from './shared/infra/Cache';
 
 export interface Contanier {
   postRepository: PostModels.useCases;
@@ -23,6 +23,7 @@ export const libs = {
   Logger: console,
   analytics: Analytics,
   Subject,
+  CacheQuery: InMemoryCache,
 };
 
 const infra = {

@@ -1,4 +1,4 @@
-import { GenericError } from '../domain/error/GenericError';
+import { GenericError } from '../../domain/error/GenericError';
 import { UseCase } from './UseCase';
 
 export class Command extends UseCase {
