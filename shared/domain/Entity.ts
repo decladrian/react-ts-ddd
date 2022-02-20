@@ -1,7 +1,16 @@
 export abstract class Entity<T> {
   constructor(protected data: T) {}
 
-  protected errors = {} as any;
+  get(key: keyof T) {
+    return this.data[key];
+  }
+
+  set(key: keyof T, value: unknow) {
+    this.data[key] = value;
+    return this;
+  }
+
+  protected errors = {} as object;
   abstract validate(): boolean;
 
   get dto() {
