@@ -9,7 +9,7 @@ export class Command extends UseCase {
   async execute<T>(
     key: string,
     useCaseCall: () => Promise<T>,
-    settings?: { payload?: any }
+    settings?: { payload?: unknown }
   ): Promise<T> {
     try {
       var data = await useCaseCall();

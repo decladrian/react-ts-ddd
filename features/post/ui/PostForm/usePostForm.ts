@@ -6,9 +6,9 @@ import { usePostFormReducer } from './usePostFormReducer';
 
 export const usePostForm = (navigate) => {
   useEffect(() => {
-    const subscription = container.postSubscriber.$subject.subscribe((data) => {
-      console.log('MMMM', data);
-    });
+    const subscription = container.postSubscriber.$subject.subscribe(
+      (data: object) => {}
+    );
     return () => {
       subscription.unsubscribe();
     };
@@ -22,7 +22,9 @@ export const usePostForm = (navigate) => {
       const result = await new PostController().save(mappedPost);
       navigate('post');
     } catch (e: any) {
-      alert(JSON.stringify({ e }));
+      if (e.type === 'invalid_data') {
+        alert(JSON.stringify(e.errors));
+      }
     }
   };
 
