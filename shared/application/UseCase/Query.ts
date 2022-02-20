@@ -11,10 +11,10 @@ export class Query extends UseCase {
     settings?: { payload?: any; cache?: boolean }
   ): Promise<T> {
     const { payload, cache } = settings;
-    const cacheKey = key.concat(JSON.stringify({ payload }));
+    const cacheKey = btoa(key.concat(JSON.stringify({ payload })));
     const cacheRecord = this.cacheQuery.get(cacheKey);
     if (cache && cacheRecord) {
-      console.log("CACHE OK")
+      console.log('CACHE OK');
       return cacheRecord as T;
     }
     try {
