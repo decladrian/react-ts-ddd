@@ -5,7 +5,7 @@ export abstract class Entity<T> {
     return this.data[key];
   }
 
-  set(key: keyof T, value: unknown) {
+  set(key: keyof T, value: any) {
     this.data[key] = value;
     return this;
   }
