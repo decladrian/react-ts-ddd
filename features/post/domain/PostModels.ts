@@ -10,8 +10,6 @@ export namespace PostModels {
   }
   export type collection = model[];
 
-  export type key = keyof model;
-
   export type saveResponse = { success: boolean };
 
   export type saveRequest = {
@@ -31,6 +29,8 @@ export namespace PostModels {
     save: (post: saveRequest) => Promise<saveResponse>;
     like: (id: SemanticTypes.ID) => Promise<likeResponse>;
   }
+
+  export type key = keyof model;
 
   export type modelValidations = {
     [k in keyof PostModels.model]?: () => boolean;
