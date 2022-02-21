@@ -31,4 +31,8 @@ export namespace PostModels {
     save: (post: saveRequest) => Promise<saveResponse>;
     like: (id: SemanticTypes.ID) => Promise<likeResponse>;
   }
+
+  export type modelValidations = {
+    [k in keyof PostModels.model]?: () => boolean;
+  };
 }

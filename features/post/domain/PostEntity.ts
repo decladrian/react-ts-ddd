@@ -2,16 +2,22 @@ import { Entity } from '../../../shared/domain/Entity';
 import { PostModels } from './PostModels';
 
 export class PostEntity extends Entity<PostModels.model> {
-  validate() {
-    const { title, content } = this.data;
-    this.errors = {};
-    if (title.length < 3) {
-      this.errors.title = 'Min length 3';
-    }
-    if (content.length < 3) {
-      this.errors.content = 'Min length 3';
-    }
-
-    return Object.keys(this.errors).length === 0;
-  }
+  validations: PostModels.modelValidations = {
+    title: () => {
+      delete this.errors.title;
+      if (this.data.title.length < 3) {
+        this.errors.title = 'Min length 3';
+        return false;
+      }
+      return true;
+    },
+    content: () => {
+      delete this.errors.content;
+      if (this.data.content.length < 3) {
+        this.errors.content = 'Min length 3';
+        return false;
+      }
+      return true;
+    },
+  };
 }
