@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import './style.css';
 import { Post } from './features/post/ui/Post/Post';
 import { PostForm } from './features/post/ui/PostForm/PostForm';
-import { Login } from './features/signin/ui/Login/Login';
 
 interface AppProps {}
 interface AppState {
