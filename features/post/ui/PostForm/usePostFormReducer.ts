@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { PostEntity } from '../../domain/PostEntity';
+//import { PostEntity } from '../../domain/PostEntity';
 import { PostModels } from '../../domain/PostModels';
 
 export const usePostFormReducer = () => {
@@ -9,7 +9,7 @@ export const usePostFormReducer = () => {
       [action.key]: action.value,
       created_at: new Date(),
     };
-    const validation = new PostEntity(newstate).validations[action.key]()
+    //const validation = new PostEntity(newstate).validations[action.key]()
     return newstate;
   };
 

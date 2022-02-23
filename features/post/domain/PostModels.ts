@@ -6,7 +6,8 @@ export namespace PostModels {
     user: SemanticTypes.ID;
     title: string;
     content: string;
-    created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
+    created_at: Date;
+    //created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   }
   export type collection = model[];
 
@@ -16,7 +17,8 @@ export namespace PostModels {
     id?: SemanticTypes.ID;
     title: string;
     content: string;
-    created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
+    created_at: Date;
+    //created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   };
 
   export type likeResponse = { success: boolean; like: boolean };
@@ -34,5 +36,9 @@ export namespace PostModels {
 
   export type modelValidations = {
     [k in keyof PostModels.model]?: () => boolean;
+  };
+
+  export type errors = {
+    [k in keyof PostModels.model]?: string;
   };
 }

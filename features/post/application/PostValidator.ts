@@ -2,7 +2,7 @@ import { Validator } from '../../../shared/application/Validator';
 import { PostModels } from '../domain/PostModels';
 
 export class PostValidator extends Validator {
-  constructor(privat data: PostModels.model) {
+  constructor(private data: PostModels.model) {
     super();
   }
 
