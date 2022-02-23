@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { usePostForm } from '../PostForm/usePostForm';
 
 export const PostForm: ReactNode = ({ navigate }) => {
-  const { form, changeValue, submit, errors, postErrors } =
+  const { form, changeValue, submit, errors, postErrors, validateValue } =
     usePostForm(navigate);
 
   return (
@@ -12,6 +12,7 @@ export const PostForm: ReactNode = ({ navigate }) => {
         <input
           value={form.title}
           onChange={(e) => changeValue('title', e.currentTarget.value)}
+          onBlur={(e) => validateValue('title', e.currentTarget.value)}
         />
         {errors?.title} - {postErrors?.title}
       </div>
@@ -20,6 +21,7 @@ export const PostForm: ReactNode = ({ navigate }) => {
         <input
           value={form.content}
           onChange={(e) => changeValue('content', e.currentTarget.value)}
+          onBlur={(e) => validateValue('content', e.currentTarget.value)}
         />
         {errors?.content} - {postErrors?.content}
       </div>

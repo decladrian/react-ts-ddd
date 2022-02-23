@@ -3,6 +3,7 @@ import { container } from '../../../../container';
 import { ErrorTypes } from '../../../../shared/domain/error/ErrorTypes';
 import { PostController } from '../../application/PostController';
 import { PostValidator } from '../../application/PostValidator';
+import { PostModels } from '../../domain/PostModels';
 import { usePostFormReducer } from './usePostFormReducer';
 
 export const usePostForm = (navigate) => {
@@ -37,5 +38,23 @@ export const usePostForm = (navigate) => {
     }
   };
 
-  return { form, changeValue, submit, errors, postErrors, setPostErrors };
+  const validateValue = (key: PostModels.key, value: any) => {
+    const validator = new PostValidator(form);
+    const errors = { ...postErrors };
+    delete errors[key];
+    if (validator.validations[key]) {
+      validator.validations[key]();
+      setPostErrors({ ...errors, ...validator.getErrors() });
+    }
+  };
+
+  return {
+    form,
+    changeValue,
+    submit,
+    errors,
+    postErrors,
+    setPostErrors,
+    validateValue,
+  };
 };
