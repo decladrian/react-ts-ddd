@@ -6,6 +6,7 @@ import { usePostFormReducer } from './usePostFormReducer';
 
 export const usePostForm = (navigate) => {
   const [errors, setErrors] = useState<any>({});
+  const [postErrors, setPostErrors] = useState<PostModels.errors>({});
   useEffect(() => {
     const subscription = container.postSubscriber.$subject.subscribe(
       (data: object) => {}
@@ -30,5 +31,5 @@ export const usePostForm = (navigate) => {
     }
   };
 
-  return { form, changeValue, submit, errors };
+  return { form, changeValue, submit, errors, postErrors, setPostErrors };
 };

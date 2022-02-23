@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 //import { PostEntity } from '../../domain/PostEntity';
 import { PostModels } from '../../domain/PostModels';
 
