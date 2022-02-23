@@ -1,9 +1,16 @@
 import { useReducer } from 'react';
+import { PostEntity } from '../../domain/PostEntity';
 import { PostModels } from '../../domain/PostModels';
 
 export const usePostFormReducer = () => {
   const reducer = (state, action) => {
-    return { ...state, [action.key]: action.value, created_at: new Date() };
+    const newstate = {
+      ...state,
+      [action.key]: action.value,
+      created_at: new Date(),
+    };
+    const validation = new PostEntity(newstate).validations[action.key]()
+    return newstate;
   };
 
   const initForm = { title: '', content: '', created_at: new Date() };
