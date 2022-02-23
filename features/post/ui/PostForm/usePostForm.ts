@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { container } from '../../../../container';
 import { ErrorTypes } from '../../../../shared/domain/error/ErrorTypes';
 import { PostController } from '../../application/PostController';
+import { PostValidator } from '../../application/PostValidator';
 import { usePostFormReducer } from './usePostFormReducer';
 
 export const usePostForm = (navigate) => {
@@ -20,6 +21,11 @@ export const usePostForm = (navigate) => {
 
   const submit = async () => {
     setErrors({});
+    const validator = new PostValidator(form);
+    if (!validator.validate()) {
+      setPostErrors({ ...validator.getErrors() });
+      return;
+    }
     try {
       const result = await new PostController().save(form);
       navigate('post');
