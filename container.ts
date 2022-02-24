@@ -17,7 +17,7 @@ export interface Contanier {
   Command: Command;
   Query: Query;
   postSubscriber: PostSubscriber;
-  DateMapper: DateMapper;
+  DateMapper: DateMapper();
 }
 
 export const libs = {
@@ -34,7 +34,7 @@ const infra = {
   postSubscriber: new PostSubscriber(new Subject(() => {})),
   Command: new Command(libs.Logger, (data) => alert(data)),
   Query: new Query(libs.Logger),
-  DateMapper: DateMapper,
+  DateMapper: new DateMapper(),
 };
 
 const mocks = {
