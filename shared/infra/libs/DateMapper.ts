@@ -9,4 +9,11 @@ export class DateMapper {
   ): string {
     return mockStringDate;
   }
+
+  static stringFormatToNativeDate(
+    date: string,
+    format: DateFormat = 'DD-MM-YYYY'
+  ): Date {
+    return new Date();
+  }
 }

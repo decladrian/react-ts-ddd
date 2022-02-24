@@ -1,18 +1,24 @@
-import { PostModels } from "../domain/PostModels";
+import { container } from '../../../container';
+import { PostModels } from '../domain/PostModels';
 
 export class PostMapper {
+  static readonly DateMapper = container.DateMapper;
 
   static modelToDto(model: PostModels.model): PostModels.rawModel {
     return {
       ...model,
-      created_at: ""
-    }
+      created_at: container.DateMapper.ativeDateToStringFormat(
+        model.created_at
+      ),
+    };
   }
 
   static dtoToModel(rawModel: PostModels.rawModel): PostModels.model {
     return {
       ...rawModel,
-      created_at: new Date(),
-    }
+      created_at: PostMapper.DateMapper.stringFormatToNativeDate(
+        rawModel.created_at
+      ),
+    };
   }
 }

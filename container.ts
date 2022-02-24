@@ -9,6 +9,7 @@ import { PostSubscriber } from './features/post/infra/PostSbuscriber';
 import { Command } from './shared/application/UseCase/Command';
 import { Query } from './shared/application/UseCase/Query';
 import { InMemoryCache } from './shared/infra/Cache';
+import { DateMapper } from './shared/infra/libs/DateMapper';
 
 export interface Contanier {
   postRepository: PostModels.useCases;
@@ -16,6 +17,7 @@ export interface Contanier {
   Command: Command;
   Query: Query;
   postSubscriber: PostSubscriber;
+  DateMapper: DateMapper;
 }
 
 export const libs = {
@@ -32,6 +34,7 @@ const infra = {
   postSubscriber: new PostSubscriber(new Subject(() => {})),
   Command: new Command(libs.Logger, (data) => alert(data)),
   Query: new Query(libs.Logger),
+  DateMapper: DateMapper,
 };
 
 const mocks = {
