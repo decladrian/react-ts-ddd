@@ -7,7 +7,7 @@ export class PostMapper {
   static modelToDto(model: PostModels.model): PostModels.rawModel {
     return {
       ...model,
-      created_at: PostMapper.DateMapper.ativeDateToStringFormat(
+      created_at: PostMapper.DateMapper.nativeDateToStringFormat(
         model.created_at
       ),
     };
