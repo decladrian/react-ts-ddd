@@ -1,13 +1,12 @@
 import { container } from '../../../container';
 import { Controller } from '../../../shared/application/Controller';
-import { ValidationError } from '../../../shared/domain/error/ValidationError';
 import { SemanticTypes } from '../../../shared/domain/SemainticType';
 import { PostEntity } from '../domain/PostEntity';
 import { PostModels } from '../domain/PostModels';
 
 export class PostController extends Controller implements PostModels.useCases {
   private readonly repository = container.postRepository;
-  private readonly postSubscriber = container.postSubscriber;
+  //private readonly postSubscriber = container.postSubscriber;
   private prefix = 'POST';
 
   save(payload: PostModels.saveRequest) {
