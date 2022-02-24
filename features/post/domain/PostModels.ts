@@ -2,13 +2,17 @@ import { SemanticTypes } from '../../../shared/domain/SemainticType';
 
 export namespace PostModels {
   export interface model {
-    id: SemanticTypes.ID;
+    id?: SemanticTypes.ID;
     user: SemanticTypes.ID;
     title: string;
     content: string;
     created_at: Date;
-    //created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   }
+
+  export interface rawModel extends Omit<model, 'created_at'> {
+    created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
+  }
+
   export type collection = model[];
 
   export type saveResponse = { success: boolean };
@@ -18,8 +22,11 @@ export namespace PostModels {
     title: string;
     content: string;
     created_at: Date;
-    //created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   };
+
+  export interface rawSaveRequest extends Omit<saveRequest, 'created_at'> {
+    created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
+  }
 
   export type likeResponse = { success: boolean; like: boolean };
 
