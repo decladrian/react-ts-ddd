@@ -17,7 +17,7 @@ export interface Contanier {
   Command: Command;
   Query: Query;
   postSubscriber: PostSubscriber;
-  DateMapper: DateMapper();
+  DateMapper: DateMapper;
 }
 
 export const libs = {

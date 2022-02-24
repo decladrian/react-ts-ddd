@@ -3,5 +3,5 @@ export const PostMock = {
   user: 10,
   title: 'Título post',
   content: 'Contenido del post',
-  created_at: new Date(),
+  created_at: '2022-10-10',
 };

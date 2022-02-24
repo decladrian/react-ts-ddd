@@ -13,7 +13,7 @@ export namespace PostModels {
     created_at: SemanticTypes.DATEFORMAT_YYYY_MM_DDD;
   }
 
-  export type collection = model[];
+  export type collection = rawModel[];
 
   export type saveResponse = { success: boolean };
 
@@ -33,7 +33,7 @@ export namespace PostModels {
   export type likeRequest = { id: SemanticTypes.ID };
 
   export interface useCases {
-    find: (id: SemanticTypes.ID) => Promise<model>;
+    find: (id: SemanticTypes.ID) => Promise<rawModel>;
     findAll: () => Promise<collection>;
     save: (post: saveRequest) => Promise<saveResponse>;
     like: (id: SemanticTypes.ID) => Promise<likeResponse>;

@@ -5,7 +5,7 @@ export const PostCollectionMock = {
       user: 10,
       title: 'Título post',
       content: 'Contenido del post',
-      created_at: new Date(), // 2022-02-03
+      created_at: "2022-02-03",
     },
   ],
 };

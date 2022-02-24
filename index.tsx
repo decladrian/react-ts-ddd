@@ -34,7 +34,6 @@ class App extends Component<AppProps, AppState> {
         {this.state.page === 'form' && (
           <PostForm navigate={this.navigate.bind(this)} />
         )}
-        {this.state.page === 'collection' && <div></div>}
         {this.state.page === 'post' && <Post />}
       </div>
     );

@@ -7,11 +7,9 @@ export const Post: ReactNode = () => {
   return (
     <main>
       {post && (
-        <ul>
-          <li>{post.title}</li>
-          <li>{post.content}</li>
-          <li>{post.created_at}</li>
-        </ul>
+        <div>
+          {post.title} - {post.content} - {post.created_at}
+        </div>
       )}
     </main>
   );
