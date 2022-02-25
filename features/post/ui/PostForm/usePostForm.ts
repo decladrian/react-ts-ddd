@@ -36,9 +36,9 @@ export const usePostForm = (navigate) => {
     }
   };
 
-  const validateValue = (key: PostModels.key, value: any) => {
-    const validator = new PostValidator(form);
+  const validateValue = (key: PostModels.key) => {
     const errors = { ...postErrors };
+    const validator = new PostValidator(form);
     delete errors[key];
     if (validator.validations[key]) {
       validator.validations[key]();
