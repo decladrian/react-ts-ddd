@@ -9,7 +9,6 @@ export const usePostFormReducer = () => {
       [action.key]: action.value,
       created_at: new Date(),
     };
-    //const validation = new PostEntity(newstate).validations[action.key]()
     return newstate;
   };
 
