@@ -5,6 +5,9 @@ User:
   avatar: string
   groups: Group[]
 
+  useCases:
+    find: (id) => User.model
+
 .................
 
 Group:
@@ -24,17 +27,16 @@ Group:
     banUser
     invite
     destroyGroup
+    report
 
 ...................    
 
 Chat:
   messages: Message[]
 
-
   useCases:
-    addMessage
-    removeMessage
-    editMessage
+    findMessages: () => Message[]
+    
 
 ....................
 
@@ -42,3 +44,10 @@ Message:
   user: User
   type: "text"
   content: string
+  chat: Chat
+  
+  useCases:
+    addMessage
+    removeMessage
+    editMessage
+
