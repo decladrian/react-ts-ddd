@@ -32,7 +32,6 @@ export const usePostForm = (navigate) => {
       navigate('post');
     } catch (e: any) {
       if (e.type === ErrorTypes.invalidDataExecption) {
-        alert(JSON.stringify(e.errors));
         setErrors(e.errors);
       }
     }
