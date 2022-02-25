@@ -9,7 +9,7 @@ User:
 
 Group:
   id: number
-  name: string(150)
+  name: string
   owner: User
   admin: User[]
   chats: Chat
