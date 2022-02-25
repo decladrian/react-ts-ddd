@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { container } from '../../../../container';
 import { ErrorTypes } from '../../../../shared/domain/error/ErrorTypes';
-import { PostController } from '../../application/PostController';
-import { PostValidator } from '../../application/PostValidator';
+import { PostController, PostValidator } from '../../application';
 import { PostModels } from '../../domain/PostModels';
 import { usePostFormReducer } from './usePostFormReducer';
 
